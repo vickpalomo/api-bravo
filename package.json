@@ -1,0 +1,40 @@
+{
+  "name": "api-bravo",
+  "version": "1.0.0",
+  "description": "Prueba tecnica para Bravo",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start:prod": "node server.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vickpalomo/api-bravo.git"
+  },
+  "author": "Vick Palomo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vickpalomo/api-bravo/issues"
+  },
+  "homepage": "https://github.com/vickpalomo/api-bravo#readme",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-errors": "^3.0.0",
+    "compression": "^1.8.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.9",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "jest": "^29.7.0",
+    "standard": "^17.1.2",
+    "supertest": "^7.1.0"
+  }
+}
