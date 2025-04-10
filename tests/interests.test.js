@@ -19,4 +19,52 @@ describe('Interests Controller', () => {
       periodos: 3
     })
   })
+
+  it('should response status error 400 without require data', async () => {
+    const response = await request(app)
+      .post('/api/v1/interests/calcular-intereses')
+      .send({
+        principal: 1000,
+        tasa_anual: 0.05
+      })
+
+    expect(response.status).toBe(400)
+    expect(response.body).toEqual({
+      data: {},
+      msg: 'Field periodos is require.'
+    })
+  })
+
+  it('should response status error 400 with invalid data', async () => {
+    const response = await request(app)
+      .post('/api/v1/interests/calcular-intereses')
+      .send({
+        principal: 0,
+        tasa_anual: 0.05,
+        periodos: 3
+      })
+
+    expect(response.status).toBe(400)
+    expect(response.body).toEqual({
+      data: {},
+      msg: 'Field principal must be greater than 0.01'
+    })
+  })
+
+  it('should response status error 400 with aditional data', async () => {
+    const response = await request(app)
+      .post('/api/v1/interests/calcular-intereses')
+      .send({
+        principal: 1000,
+        tasa_anual: 0.05,
+        periodos: 3,
+        test: 'test'
+      })
+
+    expect(response.status).toBe(400)
+    expect(response.body).toEqual({
+      data: {},
+      msg: 'Dont allow aditional properties'
+    })
+  })
 })

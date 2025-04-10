@@ -5,8 +5,7 @@ const schema = {
       type: 'number',
       minimum: 0.01,
       errorMessage: {
-        minimum: 'Field principal must be greater than 0.01',
-        pattern: 'El valor de principal no debe tener más de dos decimales'
+        minimum: 'Field principal must be greater than 0.01'
       }
     },
     tasa_anual: {
