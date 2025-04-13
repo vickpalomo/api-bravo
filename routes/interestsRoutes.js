@@ -48,7 +48,7 @@ const router = express.Router()
 *                 tasa_anual: 0.05
 *                 periodos: 3
  *      security:
- *        - bearerAuth: []
+ *        - apiKey: []
  *      responses:
  *        '200':
  *          description: Interests calculated
@@ -69,6 +69,20 @@ const router = express.Router()
 *               # Properties of the referenced object
 *                 data: {}
 *                 msg: Field tasa_anual must be greater than 0.01
+ *        '401':
+ *          description: Authentication failed
+ *          content:
+*             application/json:
+*               example:
+*               # Properties of the referenced object
+*                 error: Authentication failed
+ *        '429':
+ *          description: Rate limit
+ *          content:
+*             application/json:
+*               example:
+*               # Properties of the referenced object
+*                 error: Request limit reached
  *        '500':
  *          description: Internal Server Error
  *          content:

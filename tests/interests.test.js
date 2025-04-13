@@ -5,6 +5,7 @@ describe('Interests Controller', () => {
   it('should calculate interest compound with valid data', async () => {
     const response = await request(app)
       .post('/api/v1/interests/calcular-intereses')
+      .set('X-API-KEY', '42IuTguij6KMv7KTV8MppveAkF6HGAC024d7Z4nKvNkMdKC7jSF3Aas0Ai12wev0')
       .send({
         principal: 1000,
         tasa_anual: 0.05,
@@ -23,6 +24,7 @@ describe('Interests Controller', () => {
   it('should response status error 400 without require data', async () => {
     const response = await request(app)
       .post('/api/v1/interests/calcular-intereses')
+      .set('X-API-KEY', '42IuTguij6KMv7KTV8MppveAkF6HGAC024d7Z4nKvNkMdKC7jSF3Aas0Ai12wev0')
       .send({
         principal: 1000,
         tasa_anual: 0.05
@@ -38,6 +40,7 @@ describe('Interests Controller', () => {
   it('should response status error 400 with invalid data', async () => {
     const response = await request(app)
       .post('/api/v1/interests/calcular-intereses')
+      .set('X-API-KEY', '42IuTguij6KMv7KTV8MppveAkF6HGAC024d7Z4nKvNkMdKC7jSF3Aas0Ai12wev0')
       .send({
         principal: 0,
         tasa_anual: 0.05,
@@ -54,6 +57,7 @@ describe('Interests Controller', () => {
   it('should response status error 400 with aditional data', async () => {
     const response = await request(app)
       .post('/api/v1/interests/calcular-intereses')
+      .set('X-API-KEY', '42IuTguij6KMv7KTV8MppveAkF6HGAC024d7Z4nKvNkMdKC7jSF3Aas0Ai12wev0')
       .send({
         principal: 1000,
         tasa_anual: 0.05,
