@@ -11,6 +11,8 @@ const swaggerUi = require('swagger-ui-express')
 const swaggerDocs = require('./swagger.js')
 const logType = process.env.MORGAN_LOG_TYPE || 'combined'
 const routes = require('./routes.js')
+const { validateApiKey } = require('./middlewares/auth/apiKeyValidation.js')
+const { limiter } = require('./middlewares/limiter/apiLimiter.js')
 
 app.use(cors({
   origin: '*',
@@ -28,6 +30,8 @@ app.use(compression())
 app.use(morgan(logType))
 app.use(express.static('public'))
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+app.use(validateApiKey)
+app.use(limiter)
 app.use('/api/v1', routes)
 
 module.exports = {
