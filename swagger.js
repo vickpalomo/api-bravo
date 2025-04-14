@@ -6,7 +6,7 @@ const swaggerOptions = {
     openapi: '3.0.0',
     info: {
       title: 'Bravo API',
-      version: '1.0.0',
+      version: '1.3.0',
       description:
         'Bravo API',
       license: {
@@ -21,7 +21,7 @@ const swaggerOptions = {
         url: `http://localhost:${process.env.APP_PORT}`
       },
       {
-        url: ''
+        url: 'https://api-bravo.onrender.com/'
       }
     ],
     components: {
