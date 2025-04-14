@@ -25,8 +25,8 @@ describe('Rate Limit Test', () => {
         tasa_anual: 0.05,
         periodos: 3
       })
-    expect(res.statusCode).toBe(429)
-    expect(res.body).toEqual({
+      expect(res.statusCode).toBe(429)
+      expect(res.body).toEqual({
       error: 'Request limit reached'
     })
   })
