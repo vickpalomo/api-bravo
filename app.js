@@ -19,13 +19,12 @@ app.use(cors({
   methods: [
     'GET', 'POST'
   ],
-  allowedHeaders: ['Content-Type']
+  allowedHeaders: ['Content-Type', 'x-api-key']
 }))
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(helmet())
-app.use(cors())
 app.use(compression())
 app.use(morgan(logType))
 app.use(express.static('public'))
