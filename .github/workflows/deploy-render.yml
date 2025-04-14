@@ -17,7 +17,12 @@ jobs:
         run: |
           npm install
           npm test
-
+        env:
+          SUPABASE_URL: 'https://ttavrhdfqtnzrhmnizni.supabase.co'
+          SUPABASE_KEY : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0YXZyaGRmcXRuenJobW5pem5pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQzMTQyNjMsImV4cCI6MjA1OTg5MDI2M30.uWmzsWuv9L35TTCdoWWdmBsqTMwzvWZPG-lc3x1F1wE'
+          JOKES_URL: 'https://api.chucknorris.io/jokes'
+          OPENWEATHER_API_KEY: 'c8904b84aadc1bbb36b4aef794349f7f'
+          OPENWEATHER_URL: 'https://api.openweathermap.org/data/2.5/weather'
       - name: Hacer deploy a Render
         run: |
           curl -X POST https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys \
